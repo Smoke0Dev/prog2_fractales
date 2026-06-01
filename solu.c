@@ -28,13 +28,13 @@ void fractalTree(Turtle *turtle, int length, int depth, int angulo){
      turtleForward(turtle, length);
      
      turtleLeft(turtle, angulo);
-     fractalTree(turtle, length * 0.7, depth - 1, angulo);
+     fractalTree(turtle, length * 0.5, depth - 1, angulo);
 
      turtleRight(turtle, angulo);
      fractalTree(turtle, length * 0.7, depth - 1, angulo);
 
      turtleRight(turtle, angulo);
-     fractalTree(turtle, length * 0.7, depth - 1, angulo);
+     fractalTree(turtle, length * 0.9, depth - 1, angulo);
 
      turtleLeft(turtle, angulo);
      turtleBackward(turtle, length);
