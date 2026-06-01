@@ -1,4 +1,20 @@
+#include <math.h>
 #include "../turtlec.h"
+
+void levy(Turtle *turtle, float length, int depth){
+     if(depth == 0){
+         turtleForward(turtle, length);
+         return;
+     }
+
+     turtleLeft(turtle, 45);
+     levy(turtle, length / sqrt(2), depth - 1);
+
+     turtleRight(turtle, 90);
+     levy(turtle, length / sqrt(2), depth - 1);
+
+     turtleLeft(turtle, 45);
+}
 
 void fractalTree(Turtle *turtle, int length, int depth, int angulo){
      if(depth == 0 || length < 5)
@@ -36,9 +52,10 @@ int main(void){
   turtleGoTo(t, 400, 550);
   turtlePenDown(t);
   
-  turtleLeft(t, 90);
-  fractalTree(t, 170, 6, 30);
-  
+  //turtleLeft(t, 90);
+  //fractalTree(t, 170, 6, 30);
+  levy(t, 200, 8);
+
   turtleAppRun(app);
   turtleAppDestroy(app);
   return 0;
