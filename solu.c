@@ -30,7 +30,10 @@ void fractalTree(Turtle *turtle, int length, int depth, int angulo){
      turtleLeft(turtle, angulo);
      fractalTree(turtle, length * 0.7, depth - 1, angulo);
 
-     turtleRight(turtle, 2 * angulo);
+     turtleRight(turtle, angulo);
+     fractalTree(turtle, length * 0.7, depth - 1, angulo);
+
+     turtleRight(turtle, angulo);
      fractalTree(turtle, length * 0.7, depth - 1, angulo);
 
      turtleLeft(turtle, angulo);
@@ -52,9 +55,9 @@ int main(void){
   turtleGoTo(t, 400, 550);
   turtlePenDown(t);
   
-  //turtleLeft(t, 90);
-  //fractalTree(t, 170, 6, 30);
-  levy(t, 200, 8);
+  turtleLeft(t, 90);
+  fractalTree(t, 200, 4, 45);
+  //levy(t, 200, 8);
 
   turtleAppRun(app);
   turtleAppDestroy(app);
