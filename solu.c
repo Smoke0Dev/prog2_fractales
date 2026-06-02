@@ -6,10 +6,11 @@ void levy(Turtle *turtle, float length, int depth){
          turtleForward(turtle, length);
          return;
      }
-
+     turtleSetColor(turtle, 255 - 40 * depth, 20, 30 * depth);
      turtleLeft(turtle, 45);
      levy(turtle, length / sqrt(2), depth - 1);
-
+     
+     turtleSetColor(turtle,40 * depth, 20, 255 - 30 * depth);
      turtleRight(turtle, 90);
      levy(turtle, length / sqrt(2), depth - 1);
 
@@ -53,12 +54,12 @@ int main(void){
   turtleSetSpeed(t, 30.0f);
 
   turtlePenUp(t);
-  turtleGoTo(t, 400, 550);
+  turtleGoTo(t, 300, 550);
   turtlePenDown(t);
   
-  turtleLeft(t, 90);
-  fractalTree(t, 180, 5, 45);
-  //levy(t, 200, 8);
+  //turtleLeft(t, 90);
+  //fractalTree(t, 180, 5, 45);
+  levy(t, 200, 8);
 
   turtleAppRun(app);
   turtleAppDestroy(app);
