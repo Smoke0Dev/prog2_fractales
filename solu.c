@@ -20,24 +20,25 @@ void fractalTree(Turtle *turtle, int length, int depth, int angulo){
      if(depth == 0 || length < 5)
          return;
     
-     if (depth > 5)
-         turtleSetColor(turtle, 120, 70, 20);
-     else
-         turtleSetColor(turtle, 0, 200, 0);
+     turtleSetColor(turtle,255 - 60 * depth, 0 ,60 * depth);
 
      turtleForward(turtle, length);
      
      turtleLeft(turtle, angulo);
-     fractalTree(turtle, length * 0.5, depth - 1, angulo);
+     fractalTree(turtle, length * 0.62, depth - 1, angulo);
 
      turtleRight(turtle, angulo);
      fractalTree(turtle, length * 0.7, depth - 1, angulo);
 
      turtleRight(turtle, angulo);
-     fractalTree(turtle, length * 0.9, depth - 1, angulo);
+     fractalTree(turtle, length * 0.88, depth - 1, angulo);
 
      turtleLeft(turtle, angulo);
+     
+     turtlePenUp(turtle);
      turtleBackward(turtle, length);
+     turtlePenDown(turtle);
+     
 }
 
 int main(void){
@@ -49,14 +50,14 @@ int main(void){
   Turtle *t = turtleAppGetTurtle(app);
 
   turtleSetColor(t, 57, 255, 20);
-  turtleSetSpeed(t, 10.0f);
+  turtleSetSpeed(t, 30.0f);
 
   turtlePenUp(t);
   turtleGoTo(t, 400, 550);
   turtlePenDown(t);
   
   turtleLeft(t, 90);
-  fractalTree(t, 200, 4, 45);
+  fractalTree(t, 180, 5, 45);
   //levy(t, 200, 8);
 
   turtleAppRun(app);
